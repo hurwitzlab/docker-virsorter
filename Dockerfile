@@ -12,8 +12,6 @@ COPY wrapper_phage_contigs_sorter_iPlant.pl /usr/local/bin/
 
 COPY Scripts /usr/local/bin/Scripts/
 
-#COPY lib /usr/local/lib/
-
 COPY bin /usr/local/bin/
 
 ENTRYPOINT ["wrapper_phage_contigs_sorter_iPlant.pl"]
