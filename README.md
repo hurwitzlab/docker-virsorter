@@ -37,17 +37,17 @@ This is the Dockerfile for that:
   
 Do a "docker build -t kyclark/virsorter-data ." with that, then:
 
-  $ docker create --name virsorter-data kyclark/virsorter-data /bin/true
+    $ docker create --name virsorter-data kyclark/virsorter-data /bin/true
 
 # Build
 
-  $ docker build -t kyclark/virsorter .
+    $ docker build -t kyclark/virsorter .
 
 # Run
 
 A sample "run" command to use the current working directory for input/output:
 
-  $ docker run --rm --volumes-from virsorter-data -v $(pwd):/de-app-work \
+    $ docker run --rm --volumes-from virsorter-data -v $(pwd):/de-app-work \
     -w /de-app-work kyclark/virsorter --fasta Mic_1.fna
 
 # Authors
