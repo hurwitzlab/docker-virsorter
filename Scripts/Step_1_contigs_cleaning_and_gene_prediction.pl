@@ -2,7 +2,6 @@
 
 use strict;
 
-use lib '/usr/local/lib/BioPerl-1.6.1';
 use Bio::Seq;
 # Script to detect circular contigs, nett sequences, and predict genes with mga
 # Argument 0 : Fasta file of contigs

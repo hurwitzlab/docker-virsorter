@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 
 use strict;
-use lib '/usr/local/lib/BioPerl-1.6.1';
 use Bio::SeqIO;
 use Bio::Seq;
 use Bio::SeqFeature::Generic;

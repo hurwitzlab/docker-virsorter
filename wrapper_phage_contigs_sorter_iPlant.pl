@@ -36,8 +36,6 @@ use Cwd 'cwd';
 
 my $DATA_DIR = '/data';
 
-use lib '/usr/local/lib';
-
 my $help              = '';
 my $original_fna_file = '';
 my $code_dataset      = 'VIRSorter';
