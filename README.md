@@ -8,7 +8,7 @@ Install the following into a "bin" directory:
 
 * HMMER (http://hmmer.janelia.org/)
 * MCL (http://micans.org/mcl/)
-* Metagene Annotator (http://metagene.nig.ac.jp/metagene/download\_mga.html)
+* Metagene Annotator (http://metagene.nig.ac.jp/metagene/download_mga.html)
 * MUSCLE (http://www.drive5.com/muscle/ -- just put binary into "bin")
 * BLAST (ftp://ftp.ncbi.nlm.nih.gov/blast/executables/release/LATEST/, not BLAST+)
 
