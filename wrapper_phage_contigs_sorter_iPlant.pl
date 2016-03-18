@@ -85,6 +85,7 @@ my $path_to_mga        = "$Bin/mga_linux_ia64";
 my $path_hmmsearch     = "$Bin/hmmsearch";
 my $path_blastall      = "$Bin/blastall";
 my $path_to_formatdb   = "$Bin/formatdb";
+my $fastq_to_fasta     = "$Bin/fastq2fasta.awk";
 my $script_dir         = "$Bin/Scripts/";
 my $dir_Phage_genes    = "$DATA_DIR/Phage_gene_catalog/";
 my $ref_phage_clusters = "$DATA_DIR/Phage_gene_catalog/Phage_Clusters_current.tab";
@@ -107,6 +108,14 @@ if (-d $log_dir) {
 } 
 else {
     mkpath($log_dir);
+}
+
+if ($original_fna_file =~ /(.*)\.fastq$/) {
+    my $fasta_name = $1 . '.fa';
+    print "converting $original_fna_file to $fasta_name\n";
+    my $cmd = "$fastq_to_fasta $original_fna_file > $fasta_name";
+    system($cmd) == 0 or die "Failed on '$cmd'\n";
+    $original_fna_file = $fasta_name;
 }
 
 # cp fasta file in the wdir
