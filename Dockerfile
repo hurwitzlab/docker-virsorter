@@ -8,12 +8,16 @@ RUN cpanm --force Capture::Tiny
 
 RUN cpanm --force BioPerl
 
-COPY wrapper_phage_contigs_sorter_iPlant.pl /usr/local/bin/
+RUN cpanm File::Which
 
-COPY Scripts /usr/local/bin/Scripts/
+COPY VirSorter /usr/local/bin/VirSorter
+
+COPY run-virsorter.sh /usr/local/bin/
 
 COPY bin /usr/local/bin/
 
-ENTRYPOINT ["wrapper_phage_contigs_sorter_iPlant.pl"]
+ENV PATH /usr/local/bin/VirSorter:$PATH
+
+ENTRYPOINT ["run-virsorter.sh"]
 
 CMD ["-h"]
