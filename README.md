@@ -55,4 +55,3 @@ A sample "run" command to use the current working directory for input/output:
 Simon Roux <roux.8@osu.edu> is the author of Virsorter
 
 Ken Youens-Clark <kyclark@email.arizona.edu> packaged this for Docker/iPlant.
-
