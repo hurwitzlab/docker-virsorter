@@ -1,11 +1,19 @@
+IMAGE = virsorter
+
 image:
-	docker build -t virsorter .
+	docker build -t $(IMAGE) .
+
+it:
+	docker run --rm -v /usr/local/imicrobe/virsorter-data:/data -w /work --entrypoint bash $(IMAGE)
+
+lichen:
+	docker run --rm -v /usr/local/imicrobe/virsorter-data:/data -v /usr/local/imicrobe/data/lichen:/work -w /work $(IMAGE) -i /work/fasta -o /work/virsorter-out -d 3
 
 delong:
-	docker run --rm -v /usr/local/imicrobe/virsorter-data:/data -v ~/work/delong/:/work -w /work virsorter -i /work/fasta -o /work/virsorter-out
+	docker run --rm -v /usr/local/imicrobe/virsorter-data:/data -v ~/work/delong/:/work -w /work $(IMAGE) -i /work/fasta -o /work/virsorter-out
 
-local-clean:
-	rm -rf ~/work/delong/out/*
+local-install: 
+	docker run -it --rm -v $(shell pwd)/local:/local -v $(shell pwd):/work -w /work --entrypoint bash $(IMAGE)
 
-local: local-clean
-	PATH=$(shell pwd)/bin:$(PATH) ./run-virsorter.sh -i ~/work/delong/fasta -o ~/work/delong/out -l /usr/local/imicrobe/virsorter-data
+cpan:
+	cpanm --local-lib-contained /local --installdeps .
